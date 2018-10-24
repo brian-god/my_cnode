@@ -4,7 +4,7 @@
 * @flow
 */
 import React,{ Component} from 'react';
-export default class Index extends Component{
+export default class User extends Component{
     render() {
         return '用户';
     }

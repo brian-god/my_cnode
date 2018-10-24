@@ -6,6 +6,6 @@
 import React,{ Component} from 'react';
 export default class Index extends Component{
     render() {
-        return '首页';
+        return "首页";
     }
 }

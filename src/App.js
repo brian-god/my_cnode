@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import  RouterIndex from './router/index'
+import './static/index.css'
 class App extends Component {
   render() {
     return (
-      <div className="App">
-      <h1>Hello world</h1>
+      <div className="pageWarp">
+        <RouterIndex/>
       </div>
-    );
+    )  
   }
 }
 
