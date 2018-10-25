@@ -1,3 +1,40 @@
 .pageWarp{
     min-height: 100vh;
 }
+#logo{
+    color: #ffff;
+    text-align: center;
+    margin-bottom: 0;
+}
+.warp{
+    max-width: 980px;
+    margin: 0 auto !important;
+}
+.headerDiveider{
+    height: 44px;
+    margin: 10px 0;
+    float: left;
+}
+#nav{
+    margin-left: 40px;
+    float: left;
+    /*清空背景色*/
+    background: none;
+    /*清空下方的线*/
+    border: none;
+    /*设置行高为64*/
+    line-height: 62px;
+}
+#nav a{
+    color: #ffff;
+}
+#nav .ant-menu-item-selected a{
+    color: #1890ff;
+}
+.xsNav{
+    /*设置绝对定位*/
+    position:absolute;
+    right: 0px;
+    top: 0px;
+    width: auto;
+}
