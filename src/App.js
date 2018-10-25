@@ -8,6 +8,9 @@ class App extends Component {
     return (
       <div className="pageWarp">
         <MainHeader/>
+        <main className="main">
+          <RouterIndex/>
+        </main>
         <MainFooter/>
       </div>
     )  

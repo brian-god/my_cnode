@@ -14,11 +14,12 @@
 * Icon 图标组件
 */
 import React,{ Component} from 'react';
-import { Layout, Row, Col, Divider,Dropdown,Button} from "antd";
+import { Layout, Row, Col, Divider,Dropdown,Button, Icon} from "antd";
 import Nav from './nav'
 import './../static/index.css'
 export default class MainHeader extends Component{
     render() {
+        const menu = <Nav mode="vertical" id="nav"/>
         return (
             <Layout.Header>
                 <Row className="warp">
@@ -30,8 +31,11 @@ export default class MainHeader extends Component{
                         <Nav mode="horizontal" id="nav" />
                     </Col>
                     <Col md={0} xs={24} className="xsNav">
-                        <Dropdown overlay={<Nav mode="vertical" id="nav"/>}>
-                            <Button>hello</Button>
+                        <Dropdown 
+                            overlay={menu}
+                            trigger ={["click"]}
+                            placement="bottomRight" >
+                            <Button><Icon type="bars"></Icon></Button>
                         </Dropdown>
                     </Col>
                 </Row>

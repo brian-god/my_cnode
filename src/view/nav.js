@@ -11,15 +11,15 @@ export default class Nav extends Component{
         let{ mode, id } = this.props;
         return (
             <Menu mode={mode} id={id}>
-                <Menu.Item>
+                <Menu.Item key="1">
                     <Link to="/index">
                         <Icon type="home" />首页</Link>
                 </Menu.Item>
-                <Menu.Item>
+                <Menu.Item key="2">
                     <Link to="/book">
                         <Icon type="book" />教程</Link>
                 </Menu.Item>
-                <Menu.Item>
+                <Menu.Item key="3">
                     <Link to="/about">
                         <Icon type="info-circle" />关于</Link>
                 </Menu.Item>

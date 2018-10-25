@@ -1,5 +1,9 @@
 .pageWarp{
+    /*设置容器填充整个屏幕*/
+    display: flex;
     min-height: 100vh;
+    /*设置主轴方向竖直*/
+    flex-direction: column;
 }
 #logo{
     color: #ffff;
@@ -8,12 +12,13 @@
 }
 .warp{
     max-width: 980px;
+    /*!important 提高样式的优先级*/
     margin: 0 auto !important;
 }
 .headerDiveider{
-    height: 44px;
-    margin: 10px 0;
-    float: left;
+    height: 44px !important;
+    margin: 10px 0 !important;
+    float: left !important;
 }
 #nav{
     margin-left: 40px;
@@ -37,4 +42,55 @@
     right: 0px;
     top: 0px;
     width: auto;
+}
+.footer{
+    text-align: center;
+}
+.main{
+    flex: 1;
+}
+.main .warp{
+    /*主体左侧菜单样式*/
+    border: 1px solid #ccc;
+    border-top: none;
+}
+#indexMenu li{
+    margin-right: -1px;
+    /*清除动画效果*/
+    transition: none;
+    text-align: center;
+    border-right: 3px solid rgba(0,0,0,0);
+}
+/**li:hover 表示鼠标事件的监听*/
+#indexMenu li:hover,
+#indexMenu .ant-menu-item-selected{
+    background: #e6f7ff;
+    border-right-color:  #1890ff;
+}
+#indexMenu{
+    border-right: none;
+}
+#indexList{
+    border-left: 1px solid #ccc;
+}
+/*@media screen and 对屏幕宽度进行监听*/
+@media all and (max-width: 767px) {
+    #indexMenu {
+        display: flex;
+        border-bottom: 1px solid #ccc;
+        flex: 1;    }
+    #indexMenu li{
+        flex: 1;
+        margin: 0 0 -1px 0;
+        border: none;
+        border-bottom: 3px solid rgba(0,0,0,0);
+    }
+    /**li:hover 表示鼠标事件的监听*/
+    #indexMenu li:hover,
+    #indexMenu .ant-menu-item-selected{
+        border-bottom-color:  #1890ff;
+    }
+    #indexList{
+        border-left: none;
+    }
 }
