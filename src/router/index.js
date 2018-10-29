@@ -4,6 +4,7 @@
 *
 * @format
 * @flow
+*index/:id 这里的ide表示参数
 */
 import React, { Component } from 'react'
 import {Switch,Route,Redirect} from  'react-router-dom'
@@ -17,9 +18,9 @@ class RouterIndex extends Component {
       return(
         <Switch>
             <Route path="/" exact render={()=>(
-                <Redirect  to="/index"/>
+                <Redirect  to="/index/all"/>
             )}/>
-            <Route path="/index" component={Index}/>
+            <Route path="/index/:id" component={Index}/>
             <Route path="/about" component={About}/>
             <Route path="/book" component={Book}/>
             <Route path="/details" component={Details}/>

@@ -12,7 +12,7 @@ export default class Nav extends Component{
         return (
             <Menu mode={mode} id={id}>
                 <Menu.Item key="1">
-                    <Link to="/index">
+                    <Link to="/index/all">
                         <Icon type="home" />首页</Link>
                 </Menu.Item>
                 <Menu.Item key="2">

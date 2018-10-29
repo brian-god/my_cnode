@@ -19,7 +19,7 @@ import Nav from './nav'
 import './../static/index.css'
 export default class MainHeader extends Component{
     render() {
-        const menu = <Nav mode="vertical" id="nav"/>
+        const menu = <Nav mode="vertical" id="xsNav"/>
         return (
             <Layout.Header>
                 <Row className="warp">
@@ -30,7 +30,7 @@ export default class MainHeader extends Component{
                         <Divider type="vertical" className="headerDiveider"/>
                         <Nav mode="horizontal" id="nav" />
                     </Col>
-                    <Col md={0} xs={24} className="xsNav">
+                    <Col md={0} xs={24} className="xsWarp">
                         <Dropdown 
                             overlay={menu}
                             trigger ={["click"]}

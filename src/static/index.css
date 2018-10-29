@@ -36,7 +36,7 @@
 #nav .ant-menu-item-selected a{
     color: #1890ff;
 }
-.xsNav{
+.xsWarp{
     /*设置绝对定位*/
     position:absolute;
     right: 0px;
@@ -53,6 +53,8 @@
     /*主体左侧菜单样式*/
     border: 1px solid #ccc;
     border-top: none;
+    /*超出部分隐藏*/
+    overflow: hidden;
 }
 #indexMenu li{
     margin-right: -1px;
@@ -70,10 +72,31 @@
 #indexMenu{
     border-right: none;
 }
+/*
 #indexList{
     border-left: 1px solid #ccc;
+}*/
+.indexSider{
+    border-right: 1px solid #ccc;
+    padding-bottom: 9999px;
+    margin-bottom: -9999px;
 }
-/*@media screen and 对屏幕宽度进行监听*/
+/*小屏菜单样式*/
+#indexXSMenu{
+    display: flex;
+}
+#indexXSMenu li{
+    flex: 1;
+    text-align: center;
+}
+#indexList{
+    padding: 0 10px;
+}
+#indexList p{
+    margin: 0px;
+}
+/*小屏菜单样式结束*/
+/*@media screen and 对屏幕宽度进行监听
 @media all and (max-width: 767px) {
     #indexMenu {
         display: flex;
@@ -85,7 +108,7 @@
         border: none;
         border-bottom: 3px solid rgba(0,0,0,0);
     }
-    /**li:hover 表示鼠标事件的监听*/
+    /**li:hover 表示鼠标事件的监听
     #indexMenu li:hover,
     #indexMenu .ant-menu-item-selected{
         border-bottom-color:  #1890ff;
@@ -94,3 +117,4 @@
         border-left: none;
     }
 }
+*/
