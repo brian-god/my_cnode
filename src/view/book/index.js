@@ -4,8 +4,14 @@
 * @flow
 */
 import React,{ Component} from 'react';
+import data from './data'
+import PublicCard from './../public_card'
 export default class Book extends Component{
     render() {
-        return '教程';
+        return (
+            <PublicCard
+            data={data}
+            />
+        );
     }
 }
