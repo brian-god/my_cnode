@@ -15,6 +15,9 @@
     /*!important 提高样式的优先级*/
     margin: 0 auto !important;
 }
+.warp img{
+    max-width: 100%;
+}
 .headerDiveider{
     height: 44px !important;
     margin: 10px 0 !important;
@@ -95,6 +98,37 @@
 #indexList p{
     margin: 0px;
 }
+/*用户名和时间的间距*/
+.authorMargin{
+    margin-right: 8px !important;
+}
+.replyList .ant-list-item-meta-avatar{
+    /*显示*/
+    display: block !important;
+}
+.ant-list-item-meta{
+    align-items: center;
+    min-width: 200px;
+}
+.ant-list-item-action{
+    margin-left: 50px;
+}
+.userAvater{
+    display: block;
+    /*上下十个像素左右居中*/
+    margin: 10px auto;
+    width: 100px;
+    height: 100px;
+}
+.userCardTitle{
+    width: 100%;
+}
+.userInfo{
+    text-align: center;
+    line-height: 24px;
+    padding-bottom: 5px;
+}
+
 /*小屏菜单样式结束*/
 /*@media screen and 对屏幕宽度进行监听
 @media all and (max-width: 767px) {

@@ -34,7 +34,7 @@ class IndexList extends Component {
               title={<div><TxtTag data={item}/><Link to={"/details/" + item.id}>{item.title}</Link></div>}
             description={
               <p>
-                <Link
+                <Link className="authorMargin" 
                 to={"/user/"+item.author.loginname}>{item.author.loginname}</Link>
                 发表于:{item.create_at.split("T")[0]}
               </p>

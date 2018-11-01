@@ -16,7 +16,6 @@
 import React,{ Component} from 'react';
 import { Layout, Row, Col, Divider,Dropdown,Button, Icon} from "antd";
 import Nav from './nav'
-import './../static/index.css'
 export default class MainHeader extends Component{
     render() {
         const menu = <Nav mode="vertical" id="xsNav"/>

@@ -5,7 +5,6 @@
 */
 import React,{ Component} from 'react';
 import {Row,Col} from 'antd'
-import './../../static/index.css'
 import IndexMenu from './indexMenu'
 import IndexList from './list'
 export default class Index extends Component{

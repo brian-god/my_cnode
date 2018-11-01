@@ -5,7 +5,6 @@
 */
 import React,{ Component} from 'react';
 import {Layout} from 'antd'
-import './../static/index.css'
 export default class MainFooter extends Component{
     render() {
         return <Layout.Footer className="footer">
