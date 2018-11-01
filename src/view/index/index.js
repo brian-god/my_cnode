@@ -9,6 +9,8 @@ import IndexMenu from './indexMenu'
 import IndexList from './list'
 export default class Index extends Component{
     render() {
+        /**获取分类 */
+        let tab = this.props.match.params.id
         return (
             <Row className="warp">
                 <Col md={6} xs={0} className="indexSider">
@@ -24,7 +26,8 @@ export default class Index extends Component{
                     mode="horizontal"/>
                 </Col>
                 <Col md={18} xs ={24} id="indexList">
-                    <IndexList/>
+                    <IndexList
+                    tab={tab}/>
                 </Col>
             </Row>
         );

@@ -128,7 +128,31 @@
     line-height: 24px;
     padding-bottom: 5px;
 }
-
+.userListTime{
+    /*绝对定位*/
+    position: absolute;
+    right: 0px;
+    top: 18px;
+}
+.userList .ant-list-item{
+    /*相对定位*/
+    position: relative;
+}
+.userList .ant-list-item *{
+    vertical-align: middle;
+}
+.userList .ant-list-item-content {
+    display: block;
+}
+.userList h4{
+    display: inline-block;
+    margin: 0;
+}
+@media all and (max-width:767px){
+    .userList h4 {
+        display: block;
+    }
+}
 /*小屏菜单样式结束*/
 /*@media screen and 对屏幕宽度进行监听
 @media all and (max-width: 767px) {

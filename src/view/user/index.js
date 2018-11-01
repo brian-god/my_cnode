@@ -9,7 +9,7 @@ import {Card,Avatar,Row,Col} from 'antd'
 import UserList from './userList'
 export default class User extends Component{
     render() {
-        let { avatar_url,loginname,create_at,score} = data.data
+        let { avatar_url,loginname,create_at,score,recent_topics,recent_replies} = data.data
         let title = <div className="userCardTitle">
                     <Avatar 
                     className="userAvater"
@@ -34,7 +34,12 @@ export default class User extends Component{
                     <UserList
                     loding={false}
                     title="最近创建话题"
-                    data ={data.data.recent_topics}
+                    data ={recent_topics}
+                    />
+                    <UserList
+                    loding={false}
+                    title="最近回复话题"
+                    data={recent_replies}
                     />
                 </Card>
             </div>
