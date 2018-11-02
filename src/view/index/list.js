@@ -19,21 +19,52 @@
 import React, { Component } from 'react'
 import {List,Avatar} from 'antd'
 import {Link} from 'react-router-dom'
-import data from './data'
 import TxtTag from '../txtTag'
 import {connect} from 'react-redux'
+import axios from 'axios'
 class IndexList extends Component {
   constructor(arg){
     super(arg);
-    let {tab} = this.props
     this.state={
-      tab:tab,
       page:1
     }
+    this.getData(this.props.tab)
+  }
+  /**生命周期函数
+   * 当state中的数据更新
+   * 判断是否需要重新渲染
+   */
+  shouldComponentUpdate(nextProps){
+   // console.log(nextProps)
+    if(this.props.tab!=nextProps.tab){
+      this.getData(nextProps.tab)
+      return false
+    }
+    return true
+  }
+  getData(tab){
+    let {page} = this.state
+    this.props.dispatch((dispatch)=>{
+      dispatch({
+        type: "LIST_UPDATA"
+      });
+      axios.get(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${page}&limit=15`)
+      .then((res)=>{
+        /**请求成功回调方法 */
+        dispatch({
+          type:"LIST_UPDATA_SUCC",
+          data:res.data
+        })
+      }).catch((error)=>{
+        dispatch({
+          type: "LIST_UPDATA_REEOR",
+          data: error
+        });
+      })
+    });
   }
   render() {
     let {loading,data} = this.props
-    console.log(this.props)
     return <List
           loading={loading}
           dataSource={data}
