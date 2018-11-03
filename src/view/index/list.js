@@ -36,7 +36,7 @@ class IndexList extends Component {
    */
   shouldComponentUpdate(nextProps){
    // console.log(nextProps)
-    if(this.props.tab!=nextProps.tab){
+    if(this.props.tab!==nextProps.tab){
       this.getData(nextProps.tab)
       return false
     }

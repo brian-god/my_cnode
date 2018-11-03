@@ -7,33 +7,53 @@
 */
 import React, { Component } from 'react'
 import {Menu} from 'antd'
-import {Link} from 'react-router-dom'
-export default class IndexMenu extends Component {
+import {Link ,withRouter} from 'react-router-dom'
+import tab from './../tab'
+class IndexMenu extends Component {
+    constructor(arg){
+        super(arg)
+        let now= this.getData(this.props.location.pathname)
+        this.state={
+            now
+        }
+    }
+    getData(pathname){
+        return pathname.split("/")[2]
+    }
+    shouldComponentUpdate(nextprops){
+        let now = this.getData(nextprops.location.pathname)
+        if(now!==this.state.now){
+            this.setState({
+                now
+            })
+            return false
+        }
+        return true
+    }
   render() {
       let{id,mode} =  this.props
       return(
         <Menu id={id}
         mode={mode}
+        selectedKeys={[this.state.now]}
         >
-            <Menu.Item>
-                <Link to="/index/all">全部</Link>
-            </Menu.Item>
-            <Menu.Item>
-                <Link to="/index/good">精华</Link>
-            </Menu.Item>
-            <Menu.Item>
-                <Link to="/index/ask">问题</Link>
-            </Menu.Item>
-            <Menu.Item>
-                <Link to="/index/share">分享</Link>
-            </Menu.Item>
-            <Menu.Item>
-                <Link to="/index/job">招聘</Link>
-            </Menu.Item>
-            <Menu.Item>
-                <Link to="/index/dev">测试</Link>
-            </Menu.Item>
+            {tab.map((item) => {
+                if(!item.isIndex){
+                    return false;
+                }
+                return (<Menu.Item key={item.tab}>
+                            <Link to={"/index/"+item.tab}>{item.txt}</Link>
+                            </Menu.Item>)
+            })}
         </Menu>
       );
   }
 }
+export default  withRouter((props)=>{
+    let{id,mode,location} = props
+    return <IndexMenu
+    id={id}
+    mode={mode}
+    location={location}
+    />
+})

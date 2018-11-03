@@ -4,12 +4,48 @@
 * @flow
 */
 import React,{ Component} from 'react';
-import data from './data'
 import {Card,Avatar,Row,Col} from 'antd'
 import UserList from './userList'
-export default class User extends Component{
+import {connect} from 'react-redux'
+import axios from 'axios'
+class User extends Component{
+    constructor(arg){
+        super(arg)
+        this.getData(this.props.match.params.id)
+    }
+    shouldComponentUpdate(nextprops){  
+        let oldid = this.props.match.params.id
+
+        let nextId = nextprops.match.params.id
+        if (oldid !== nextId){
+            this.getData(nextId)
+            return false
+        }
+        return true
+    }
+    getData(loginname){
+        this.props.dispatch((dispatch) => {
+            dispatch({
+                type: "USER_UPDATE"
+            })
+            axios.get(`https://cnodejs.org/api/v1/user/${loginname}`)
+                .then((rps) => {
+                    dispatch({
+                        type: "USER_UPDATE_SUCC",
+                        data: rps.data
+                    })
+                })
+                .catch((error) => {
+                    dispatch({
+                        type: "USER_UPDATE_ERRPR",
+                        data:error
+                    })
+                })
+        })
+    }
     render() {
-        let { avatar_url,loginname,create_at,score,recent_topics,recent_replies} = data.data
+        let {data,loding} = this.props
+        let { avatar_url,loginname,create_at,score,recent_topics,recent_replies} = data
         let title = <div className="userCardTitle">
                     <Avatar 
                     className="userAvater"
@@ -22,7 +58,7 @@ export default class User extends Component{
                         积分：<a>{score}</a>
                         </Col>
                         <Col md={8}>
-                        创建时间：<a>{create_at.split("T")[0]}</a>
+                    创建时间：<a>{create_at == null ? "" : create_at.split("T")[0]}</a>
                         </Col>
                     </Row>
                     </div>
@@ -32,12 +68,12 @@ export default class User extends Component{
                  title={title}
                 >
                     <UserList
-                    loding={false}
+                        loding={loding}
                     title="最近创建话题"
                     data ={recent_topics}
                     />
                     <UserList
-                    loding={false}
+                        loding={loding}
                     title="最近回复话题"
                     data={recent_replies}
                     />
@@ -46,3 +82,4 @@ export default class User extends Component{
         );
     }
 }
+export default connect(state=>state.user) (User)
